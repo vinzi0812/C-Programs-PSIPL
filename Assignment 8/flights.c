@@ -9,9 +9,9 @@ typedef struct air
     int seats;
     int count;
 }airline_t;
-void input(airline_t c[20])
+void input(airline_t c[5])
 {
-    for(int i=0;i<20;i++)
+    for(int i=0;i<5;i++)
     {
         printf("Enter the source: ");
         scanf("%s",c[i].src);
@@ -29,7 +29,7 @@ void input(airline_t c[20])
 int main()
 {
     int d=1,temp=0,n;
-    airline_t c[20];
+    airline_t c[5];
     input(c);
     char source[4], dest[4];
     printf("Enter your source: ");
@@ -37,7 +37,7 @@ int main()
     printf("Enter your destination: ");
     scanf("%s",dest);
     printf("Start\tEnd\tSeats\n");
-    for(int i=0;i<20;i++)
+    for(int i=0;i<5;i++)
     {
         if(strcmp(c[i].src,source)==0 && strcmp(c[i].des,dest)==0 && c[i].seats>0)
         {
@@ -46,7 +46,8 @@ int main()
             d++;
             temp++;
         }
-        if(temp==0)
+    }
+    if(temp==0)
         {
             printf("\nSorry we dont have any flights available");
         }
@@ -54,12 +55,11 @@ int main()
         {
             printf("Enter the number of flight you want to take: ");
             scanf("%d",&n);
-            for(int i=0;i<20;i++)
+            for(int i=0;i<5;i++)
             {
                 if(c[i].count==d)
                     printf("Your flight has been booked for %s to %s timings are as follows: %d to %d. Number of seats remaining: %d",c[i].src,c[i].des,c[i].start,c[i].arrive,--c[i].seats);
             }
         }
-    }
     return 0;
 }
