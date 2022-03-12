@@ -13,16 +13,10 @@ int consonant(char c)
     else
         return 0;
 }
-int length(char str[])
-{
-    int i;
-    for(i=0;str[i]!='\0';i++);
-    return i-1;
-}
 int words(char str[])
 {
     int count=0;
-    for(int i=0;i<length(str);i++)
+    for(int i=0;str[i]!=0;i++)
         if(str[i]==' ')
             count++;
     return count+1;
@@ -30,10 +24,10 @@ int words(char str[])
 int main()
 {
     char str[100];
-    int vcount=0, ccount=0;
+    int vcount=0, ccount=0,i;
     printf("Enter a string : ");
     scanf("%[^\n]",str);
-    for(int i=0;str[i]!='\0';i++)
+    for(i=0;str[i]!='\0';i++)
     {
         if(vowels(str[i])==1)
             vcount++;
@@ -41,11 +35,10 @@ int main()
             ccount++;
     }
     int  word=words(str);
-    int len=length(str);
     printf("No of vowels : %d\n",vcount);
     printf("No of consonants : %d\n",ccount);
     printf("No of characters : %d\n",vcount+ccount);
-    printf("Length of the string : %d\n",len);
+    printf("Length of the string : %d\n",i);
     printf("No of words : %d\n",word);
     return 0;
 }
