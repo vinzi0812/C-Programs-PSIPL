@@ -23,7 +23,7 @@ void compare(char str1[], char str2[], char str[])
             count=1;
             break;
         }
-        else if(str1[i]<str2[i])
+        else if(str1[i]>str2[i])
         {
             copystr(str1,str);
             count=1;
