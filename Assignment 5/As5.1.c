@@ -28,7 +28,7 @@ int main()
     {
         scanf("%d",&arr[i]);
     }
-    bubblesort(arr,n);
+    selectionsort(arr,n);
     printf("Sorted array is as follows:\n ");
     for(int i=0;i<n;i++)
     {
