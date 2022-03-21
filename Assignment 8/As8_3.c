@@ -1,5 +1,6 @@
 #include<stdio.h>
-typdef struct dob
+#include<string.h>
+typedef struct dob
 {
     int year;
     int month;
@@ -11,15 +12,70 @@ typedef struct employee
     char gender;
     int salary;
     dob birth;
+    int age;
 }employee;
 int main()
 {
-    employee c[10];
-    for(int i=0;i<10;i++)
+    employee c[10],d[10];
+    int i;
+    char name[5][20];
+    for(i=0;i<2;i++)
     {
+        printf("Enter the name: ");
         scanf(" %s",c[i].name);
-        scanf(" %c",c[i].gender);
+        printf("Enter the gender (M/F): ");
+        scanf(" %c",&c[i].gender);
+        printf("Enter the salary: ");
         scanf("%d",&c[i].salary);
-        scanf
+        printf("Enter the Date of Birth (DD MM YYYY): ");
+        scanf("%d %d %d",&c[i].birth.day,&c[i].birth.month,&c[i].birth.year);
+        c[i].age = 2022 - c[i].birth.year;
+        printf("\n");
     }
+    printf("Amendments: ");
+    for (int k=0;k<2;k++)
+    {
+        int flag=0;
+        printf("\nEnter the name: ");
+        scanf(" %s",name[k]);
+        for(int j=0;j<10;j++)
+        {
+            if(strcmp(c[j].name,name[k])==0)
+            {
+                int choice;
+                printf("Enter 1 if employee has left and 2 if employee if the salary is to be modified: ");
+                scanf("%d",&choice);
+                if(choice ==  1)
+                    c[j].salary = 0;
+                else if(choice == 2)
+                {
+                    printf("Enter the new salary: ");
+                    scanf("%d",&c[j].salary);
+                }
+                flag = 1;
+                break;
+            }
+        }
+        if(flag == 0)   
+        {
+            printf("Enter the gender of the employee (M/F): ");
+            scanf(" %c",&c[i].gender);
+            printf("Enter the salary of the employee: ");
+            scanf("%d",&c[i].salary);
+            printf("Enter the date of birth (DD MM YYYY) : ");
+            scanf("%d %d %d",&c[i].birth.day,&c[i].birth.month,&c[i].birth.year);
+            i++;
+        }
+    }
+    printf("Name\tGender\tSalary\tDate of Birth");
+    for(int k=0;k<i;k++)
+    {
+        if(c[k].age >=60 || c[k].salary == 0)
+        {
+            c[k].name="";
+            c[k].
+        }
+        printf("\n%s\t%c\t%d\t%d.%d.%d",c[k].name,c[k].gender,c[k].salary,c[i].birth.day,c[i].birth.month,c[i].birth.year);
+    }
+    return 0;
 }
