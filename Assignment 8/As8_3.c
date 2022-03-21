@@ -12,7 +12,7 @@ typedef struct employee
 }employee;
 int main()
 {
-    employee c[10],d[10];
+    employee c[10];
     int i;
     char name[5][20];
     for(i=0;i<2;i++)
@@ -60,7 +60,8 @@ int main()
             printf("Enter the salary of the employee: ");
             scanf("%d",&c[i].salary);
             printf("Enter the date of birth (DD MM YYYY) : ");
-            scanf("%d %d %d",&c[i].birth.day,&c[i].birth.month,&c[i].birth.year);
+            scanf("%d %d %d",&c[i].day,&c[i].month,&c[i].year);
+            c[i].age = 2022 - c[i].year;
             i++;
         }
     }
