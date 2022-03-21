@@ -1,17 +1,13 @@
 #include<stdio.h>
 #include<string.h>
-typedef struct dob
-{
-    int year;
-    int month;
-    int day;
-}dob;
 typedef struct employee
 {
     char name[20];
     char gender;
     int salary;
-    dob birth;
+    int day;
+    int month;
+    int year;
     int age;
 }employee;
 int main()
@@ -28,8 +24,8 @@ int main()
         printf("Enter the salary: ");
         scanf("%d",&c[i].salary);
         printf("Enter the Date of Birth (DD MM YYYY): ");
-        scanf("%d %d %d",&c[i].birth.day,&c[i].birth.month,&c[i].birth.year);
-        c[i].age = 2022 - c[i].birth.year;
+        scanf("%d %d %d",&c[i].day,&c[i].month,&c[i].year);
+        c[i].age = 2022 - c[i].year;
         printf("\n");
     }
     printf("Amendments: ");
@@ -58,6 +54,7 @@ int main()
         }
         if(flag == 0)   
         {
+            strcpy(c[i].name,name[k]);
             printf("Enter the gender of the employee (M/F): ");
             scanf(" %c",&c[i].gender);
             printf("Enter the salary of the employee: ");
@@ -70,12 +67,8 @@ int main()
     printf("Name\tGender\tSalary\tDate of Birth");
     for(int k=0;k<i;k++)
     {
-        if(c[k].age >=60 || c[k].salary == 0)
-        {
-            c[k].name="";
-            c[k].
-        }
-        printf("\n%s\t%c\t%d\t%d.%d.%d",c[k].name,c[k].gender,c[k].salary,c[i].birth.day,c[i].birth.month,c[i].birth.year);
+        if(c[k].age <60 && c[k].salary != 0)
+            printf("\n%s\t%c\t%d\t%d.%d.%d",c[k].name,c[k].gender,c[k].salary,c[i].day,c[i].month,c[i].year);
     }
     return 0;
 }
