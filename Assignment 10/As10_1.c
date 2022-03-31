@@ -10,7 +10,7 @@ void print(char filename[])
 {
     FILE *fp, *fp1, *fp2;
     fp=fopen(filename,"r");
-    if(fp = NULL)
+    if(fp == NULL)
         printf("File Not Found");
     else
     {
@@ -18,7 +18,7 @@ void print(char filename[])
         book_t b[10];
         fp1=fopen("Paperbacks.txt","w");
         fp2=fopen("Handbacks.txt","w");
-        while(fscanf(fp,"%[^,], %[^,], %[^\n]\n",b[i].type,b[i].name,b[i].author)!=EOF)
+        while(fscanf(fp," %c, %[^,], %[^\n]\n",b[i].type,b[i].name,b[i].author)!=EOF)
         {
             if(b[i].type=='b')
             {
