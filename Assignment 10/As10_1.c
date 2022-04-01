@@ -15,32 +15,33 @@ int print(char filename[])
         printf("File Not Found");
         return 0;
     }
-    int i=0;
-    book_t b[10];
+    book_t b;
     fp1=fopen("Paperbacks.txt","w");
     fp2=fopen("Handbacks.txt","w");
-    while(fscanf(fp," %c, %[^,], %[^\n]\n",&b[i].type,b[i].name,b[i].author)!=EOF)
+    while(fscanf(fp," %c, %[^,], %[^\n]\n",&b.type,b.name,b.author)!=EOF)
     {
-        if(b[i].type=='b')
+        if(b.type=='b')
         {
-            fprintf(fp1,"%s, %s\n",b[i].name,b[i].author);
-            fprintf(fp2,"%s, %s\n",b[i].name,b[i].author);
+            fprintf(fp1,"%s, %s\n",b.name,b.author);
+            fprintf(fp2,"%s, %s\n",b.name,b.author);
         }
-        else if(b[i].type == 'p')
-            fprintf(fp1,"%s, %s\n",b[i].name,b[i].author);
-        else if(b[i].type == 'h')
-            fprintf(fp2,"%s, %s\n",b[i].name,b[i].author);
-        i++;
+        else if(b.type == 'p')
+            fprintf(fp1,"%s, %s\n",b.name,b.author);
+        else if(b.type == 'h')
+            fprintf(fp2,"%s, %s\n",b.name,b.author);
     }
     fclose(fp1);
     fclose(fp2);
     fclose(fp); 
+    return 0;
 }
 int main()
 {
+    int i;
     char filename[20];
+    printf("Enter the name of the file where the records are kept: ");
     scanf("%s",filename);
     strcat(filename,".txt");
-    print(filename);
+    i = print(filename);
     return 0;
 }
