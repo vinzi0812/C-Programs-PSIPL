@@ -31,7 +31,7 @@ int main()
     strcat(filename1,".txt");
     printf("Enter the filename containing the dates: ");
     scanf("%s",filename2);
-    printf(filename2,".txt");
+    strcat(filename2,".txt");
     check(filename1,filename2);
     return 0;
 }
